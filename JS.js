@@ -10,22 +10,32 @@ function ajax (type,url,obj,success,error){
     var xmlhttp=new XMLHttpRequest();
     if(type === "GET"){
         xmlhttp.open(type,url+"?"+str,true);
+        xmlhttp.onreadystatechange = function(){
+            if(xmlhttp.readyState === 4){
+                if(xmlhttp.status >= 200 && xmlhttp.status < 300 || xmlhttp.status===304){
+                    success(xmlhttp);
+                }
+                else{
+                    error(xmlhttp);
+                }
+            }
+        }
         xmlhttp.send();
     }
     else{
         xmlhttp.open(type,url,true);
-        xmlhttp.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-        xmlhttp.send(str);
-    }
-    xmlhttp.onreadystatechange = function(){
-        if(xmlhttp.readyState === 4){
-            if(xmlhttp.status >= 200 && xmlhttp.status < 300 || xmlhttp.status===304){
-                success(xmlhttp);
-            }
-            else{
-                error(xmlhttp);
+        xmlhttp.onreadystatechange = function(){
+            if(xmlhttp.readyState === 4){
+                if(xmlhttp.status >= 200 && xmlhttp.status < 300 || xmlhttp.status===304){
+                    success(xmlhttp);
+                }
+                else{
+                    error(xmlhttp);
+                }
             }
         }
+        xmlhttp.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+        xmlhttp.send(str);
     }
 }
 

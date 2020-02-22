@@ -234,6 +234,9 @@
 .topstory-nav{
     flex: 1 1;
     font-size: 14px;
+    position: relative;
+    right: 0px;
+    
 }
 .write-card{
     display:flex;
@@ -897,10 +900,6 @@
 .question-answer-content{
     padding: 16px 20px;
 }
-.content-item-meta{
-    font-size: 15px;
-    color: #646464;
-}
 .autor-info{
     display: flex;
     align-items: center;
@@ -932,6 +931,10 @@
 .ztext p{
     margin: 1.4em 0;
 }
+.content-item-meta{
+    font-size: 15px;
+    color: #646464;
+}
 .content-item-time{
     margin-top: 10px;
     font-size: 14px;
@@ -950,6 +953,14 @@
     margin-left: 24px;
     font-size: 14px;
     padding: 0;
+}
+.content-item-title{
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.6;
+    color: #1a1a1a;
+    margin-top: -4px;
+    margin-bottom: -4px;
 }
 .vote-button{
     padding: 0 10px;
